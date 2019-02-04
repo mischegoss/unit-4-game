@@ -1,0 +1,73 @@
+.random-number-box {
+   
+    background-color: orange;
+    border: 3px solid purple;
+}
+
+.win-box {
+    background-color: pink;
+    border: 3px solid purple;
+}
+
+.game-display {
+    width: 80%;
+    height: 50vh;
+
+}
+
+.gems {
+    border: 5px solid purple;
+    max-width: 100%;
+    height: auto;
+    
+}
+
+.score-box {
+    
+    background-color: teal;
+    border: 3px solid purple;
+}
+
+.loss-box {
+    background-color: lightgreen;
+    border: 3px solid purple;
+}
+
+
+
+
+
+
+
+#random-number,
+#score {
+    font-size: 8em;
+}
+
+@media only screen and (max-width: 800px) {
+    #random-number,
+    #score {
+      font-size: 6em;
+    }
+
+    .score-box,
+    .random-number-box {
+        height: 20%;
+    }
+
+    .game-display {
+        height: 70vh;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {
+    #random-number,
+    #score {
+      font-size: 4em;
+    }
+
+    .game-display {
+        height: 80vh;
+    }
+  }
+  
