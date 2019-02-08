@@ -10,12 +10,13 @@ let gem3 = $("#gem3")
 let gem4 = $("#gem4")
 let scoreval =  $("#score")
 let wintext = $("#win")
+let playagain =$("#play-again")
 let win = 0
 
 
 $( document ).ready(function() {
-   
-    scoreval.text(" ")
+    
+   playagain.hide()
 
     $("#random-number").text(randomnumber)
     
@@ -59,6 +60,7 @@ $( document ).ready(function() {
     if (randomnumber === score) {
         win ++
         wintext.text(win)
+        playagain.show()
     }
 
    }
