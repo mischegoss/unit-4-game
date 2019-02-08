@@ -29,10 +29,7 @@ $( document ).ready(function() {
         score = score + cardvalueone;  
         scoreval.text(score)
         console.log(score)
-        if (randomnumber === score) {
-            win ++
-            wintext.text(win)
-        }
+        checkWin()
       }
     )
 
@@ -58,7 +55,13 @@ $( document ).ready(function() {
       }
     )
 
-   
+   function checkWin() {
+    if (randomnumber === score) {
+        win ++
+        wintext.text(win)
+    }
+
+   }
 });
 
     

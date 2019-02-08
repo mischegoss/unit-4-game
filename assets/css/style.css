@@ -74,8 +74,10 @@ display: flex;
         height: 70vh;
     }
 
-    
-  }
+  .hide {
+      display: none;
+  }  
+  
   
   @media only screen and (max-width: 600px) {
     #random-number,
@@ -84,7 +86,7 @@ display: flex;
     }
 
     .game-display {
-        height: 80vh;
+        width: 100%;
     }
 
    
