@@ -7,7 +7,10 @@ $( document ).ready(function() {
     let cardvaluefour =  Math.floor((Math.random() * 30) + 1);
     let score = 0
 
-    $("#score").text(score)
+   $("#exampleModalCenter").show(); 
+
+function onStart {
+    $("#score").text(" ")
 
     $("#random-number").text(randomnumber)
     console.log(randomnumber)
@@ -25,10 +28,11 @@ $( document ).ready(function() {
 
     $( "#gem1" ).click(function() {
         score = score + cardvalueone;
+        
         $("#score").text(score)
         console.log(score)
       });
-  
+    }
   
 });
 
