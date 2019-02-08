@@ -1,15 +1,14 @@
 
 $( document ).ready(function() {
-    let randomnumber = Math.floor((Math.random() * 100) + 1);
-    let cardvalueone =  Math.floor((Math.random() * 30) + 1);
-    let cardvaluetwo =  Math.floor((Math.random() * 30) + 1);
-    let cardvaluethree =  Math.floor((Math.random() * 30) + 1);
-    let cardvaluefour =  Math.floor((Math.random() * 30) + 1);
+   
+    let randomnumber = Math.floor((Math.random() * 120) + 19);
+    let cardvalueone =  Math.floor((Math.random() * 12) + 1);
+    let cardvaluetwo =  Math.floor((Math.random() * 12) + 1);
+    let cardvaluethree =  Math.floor((Math.random() * 12) + 1);
+    let cardvaluefour =  Math.floor((Math.random() * 12) + 1);
     let score = 0
 
-   $("#exampleModalCenter").show(); 
-
-function onStart {
+  
     $("#score").text(" ")
 
     $("#random-number").text(randomnumber)
@@ -31,9 +30,9 @@ function onStart {
         
         $("#score").text(score)
         console.log(score)
-      });
-    }
-  
+      }
+    )
+    
 });
 
 
