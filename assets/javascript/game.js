@@ -37,10 +37,10 @@ function setRandomNumber() {
  
 function setCardValue()  {
 
-  cardvalueone = /*Math.floor((Math.random() * 12) + 1); */  5
-  cardvaluetwo =  Math.floor((Math.random() * 12) + 1);
-  cardvaluethree =  Math.floor((Math.random() * 12) + 1);
-  cardvaluefour =  Math.floor((Math.random() * 12) + 1);
+  cardvalue1 = /*Math.floor((Math.random() * 12) + 1); */  5
+  cardvalue2 =  Math.floor((Math.random() * 12) + 1);
+  cardvalue3 =  Math.floor((Math.random() * 12) + 1);
+  cardvalue4 =  Math.floor((Math.random() * 12) + 1);
 
 gem1.val(cardvalueone)
 gem2.val(cardvaluetwo)
@@ -54,7 +54,7 @@ gem4.val(cardvaluefour)
 
     gem1.click(function() {
         scoreval.show()
-        score = score + cardvalueone;  
+        score = score + cardvalue1;  
         scoreval.text(score)
         console.log(score)
         checkWin()
@@ -63,7 +63,7 @@ gem4.val(cardvaluefour)
 
     gem2.click(function() {
         scoreval.show()
-        score = score + cardvaluetwo;      
+        score = score + cardvalue2;      
         scoreval.text(score)
         console.log(score)
         
@@ -72,7 +72,7 @@ gem4.val(cardvaluefour)
     
     gem3.click(function() {
       scoreval.show()
-        score = score + cardvaluethree;    
+        score = score + cardvalue3;    
         scoreval.text(score)
         console.log(score)
       }
@@ -80,7 +80,7 @@ gem4.val(cardvaluefour)
 
     gem4.click(function() {
        scoreval.show()
-        score = score + cardvaluefour;    
+        score = score + cardvalue4;    
         scoreval.text(score)
         console.log(score)
       }
@@ -108,12 +108,9 @@ gem4.val(cardvaluefour)
    }
 
    playagain.click(function() {
-    gem1.val(cardvalueone)
-    gem2.val(cardvaluetwo)
-    gem3.val(cardvaluethree)
-    gem4.val(cardvaluefour)
-    
-    cardvaluetwo =  Math.floor((Math.random() * 12) + 1);
+    onLoad()
+    score = 0;
+    console.log(cardvaluefour,cardvaluethree)
      
    }
  )
