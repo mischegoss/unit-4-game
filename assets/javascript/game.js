@@ -61,6 +61,7 @@ $( document ).ready(function() {
         win ++
         wintext.text(win)
         playagain.show()
+        $("#win1").attr("src","assets/images/gemblack.jpg");
     }
 
    }

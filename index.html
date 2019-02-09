@@ -35,9 +35,10 @@
     
     <div class="container game-display">
         <!--Row 1-->
-        <div class="row">
+        <div class="row text-center">
           <div class="col-md-8  col-sm-12 random-number-box" id = "random-box">
-            <p class ="text-center" id="random-number"></p>
+            <p class = "text-left">Match this number:</p>
+            <p id="random-number"></p>
           </div>
           <div class="col-md-4 col-sm-12  win-box">
             <p>Win Count <span id = "win"></span> </p>
@@ -48,7 +49,7 @@
         
         </div>
         <!--Row 2 -->
-        <div class="row gem-row mh-40 ">
+        <div class="row gem-row  ">
                 <div class="col-3 gems" id ="gem1">
                   <img class="img-fluid" src="assets/images/gemblack.jpg">
                 </div>
@@ -78,8 +79,8 @@
                       
                      <!--Inner Row 1-->
                       <div class = "row">
-                      <div class="win-gem col-4" id ="win1">
-                          <img class="img-fluid blank-gem" src="assets/images/blankgem.jpg">
+                      <div class="win-gem col-4" >
+                          <img class="img-fluid blank-gem" id ="win1"src="assets/images/blankgem.jpg">
                         </div>
                         <div class="win-gem col-4" id ="win2">
                             <img class="img-fluid blank-gem" src="assets/images/blankgem.jpg">
@@ -109,7 +110,7 @@
         <!--Row 4 -->
               <div class="row">
                   
-                  <div class ="col-12  text-center">
+                  <div class ="col-12 text-center button-row">
  <!-- Button trigger modal -->
  <button type="button" class="btn btn-primary directions-button"  data-toggle="modal" data-target="#exampleModalCenter">
     How to Play

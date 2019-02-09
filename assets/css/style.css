@@ -44,7 +44,9 @@ display: flex;
    
 
 }
-
+.button-row {
+    background-color: purple;
+}
 .blank-gem {
     max-width: 100%;
     height: auto;
