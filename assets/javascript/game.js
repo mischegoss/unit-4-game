@@ -1,5 +1,5 @@
-let randomnumber = /*Math.floor((Math.random() * 101) + 19); */ 20
-let cardvalueone = /* Math.floor((Math.random() * 12) + 1); */ 5
+let randomnumber =/* Math.floor((Math.random() * 101) + 19); */ 20
+let cardvalueone = /*Math.floor((Math.random() * 12) + 1); */  5
 let cardvaluetwo =  Math.floor((Math.random() * 12) + 1);
 let cardvaluethree =  Math.floor((Math.random() * 12) + 1);
 let cardvaluefour =  Math.floor((Math.random() * 12) + 1);
@@ -17,6 +17,7 @@ let win = 0
 $( document ).ready(function() {
     
    playagain.hide()
+   scoreval.hide()
 
     $("#random-number").text(randomnumber)
     
@@ -27,6 +28,7 @@ $( document ).ready(function() {
     
 
     gem1.click(function() {
+        scoreval.show()
         score = score + cardvalueone;  
         scoreval.text(score)
         console.log(score)
@@ -35,6 +37,7 @@ $( document ).ready(function() {
     )
 
     gem2.click(function() {
+        scoreval.show()
         score = score + cardvaluetwo;      
         scoreval.text(score)
         console.log(score)
@@ -43,6 +46,7 @@ $( document ).ready(function() {
     )
     
     gem3.click(function() {
+      scoreval.show()
         score = score + cardvaluethree;    
         scoreval.text(score)
         console.log(score)
@@ -50,6 +54,7 @@ $( document ).ready(function() {
     )
 
     gem4.click(function() {
+       scoreval.show()
         score = score + cardvaluefour;    
         scoreval.text(score)
         console.log(score)
@@ -60,11 +65,16 @@ $( document ).ready(function() {
     if (randomnumber === score) {
         win ++
         wintext.text(win)
+        scoreval.text("🎉 🎉 ")
         playagain.show()
         $("#win1").attr("src","assets/images/gemblack.jpg");
     }
 
    }
+
+  
+   
+
 });
 
     
