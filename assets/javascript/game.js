@@ -1,30 +1,55 @@
-let randomnumber =/* Math.floor((Math.random() * 101) + 19); */ 20
-let cardvalueone = /*Math.floor((Math.random() * 12) + 1); */  5
-let cardvaluetwo =  Math.floor((Math.random() * 12) + 1);
-let cardvaluethree =  Math.floor((Math.random() * 12) + 1);
-let cardvaluefour =  Math.floor((Math.random() * 12) + 1);
-let score = 0
-let gem1 =$("#gem1")
-let gem2= $("#gem2")
-let gem3 = $("#gem3")
-let gem4 = $("#gem4")
-let scoreval =  $("#score")
-let wintext = $("#win")
-let playagain =$("#play-again")
-let win = 0
-
 
 $( document ).ready(function() {
-    
-   playagain.hide()
-   scoreval.hide()
 
-    $("#random-number").text(randomnumber)
+/*These are the universal variables */
+
+const gem1 =$("#gem1");
+const gem2= $("#gem2");
+const gem3 = $("#gem3");
+const gem4 = $("#gem4");
+const scoreval =  $("#score");
+const wintext = $("#win");
+const playagain =$("#play-again");
+let win = 0;
+let didWin = false;
+let score = 0;
+let randomnumber;
+let cardvalueone;
+let cardvaluetwo;
+let cardvaluethree;
+let cardvaluefour;
+
+/* This is the function that sets things up  on load */
+
+
+function onLoad() {
+  playagain.hide()
+   scoreval.hide()
+   setRandomNumber()
+   setCardValue()
+};
+
+function setRandomNumber() {
+  randomnumber =/* Math.floor((Math.random() * 101) + 19); */ 20
+  $("#random-number").text(randomnumber)
+}
     
-    gem1.val(cardvalueone)
-    gem2.val(cardvaluetwo)
-    gem3.val(cardvaluethree)
-    gem4.val(cardvaluefour)
+ 
+function setCardValue()  {
+
+  cardvalueone = /*Math.floor((Math.random() * 12) + 1); */  5
+  cardvaluetwo =  Math.floor((Math.random() * 12) + 1);
+  cardvaluethree =  Math.floor((Math.random() * 12) + 1);
+  cardvaluefour =  Math.floor((Math.random() * 12) + 1);
+
+gem1.val(cardvalueone)
+gem2.val(cardvaluetwo)
+console.log(cardvaluetwo)
+gem3.val(cardvaluethree)
+gem4.val(cardvaluefour)
+}
+    
+
     
 
     gem1.click(function() {
@@ -68,13 +93,32 @@ $( document ).ready(function() {
         scoreval.text("🎉 🎉 ")
         playagain.show()
         $("#win1").attr("src","assets/images/gemblack.jpg");
+        
+
     }
 
    }
 
-  
-   
+   function getCardValues() {
+    let randomnumber =/* Math.floor((Math.random() * 101) + 19); */ 20
+    let cardvalueone = /*Math.floor((Math.random() * 12) + 1); */  5
+    let cardvaluetwo =  Math.floor((Math.random() * 12) + 1);
+    let cardvaluethree =  Math.floor((Math.random() * 12) + 1);
+    let cardvaluefour =  Math.floor((Math.random() * 12) + 1);
+   }
 
+   playagain.click(function() {
+    gem1.val(cardvalueone)
+    gem2.val(cardvaluetwo)
+    gem3.val(cardvaluethree)
+    gem4.val(cardvaluefour)
+    
+    cardvaluetwo =  Math.floor((Math.random() * 12) + 1);
+     
+   }
+ )
+   
+onLoad();
 });
 
     
