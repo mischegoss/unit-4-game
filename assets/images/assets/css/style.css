@@ -1,0 +1,66 @@
+/* Universal styling */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: Comic Sans;
+  color: #133d46;
+}
+
+body {
+  background-color: #eef8fa;
+}
+
+
+/*Styling for Card */
+.card {
+    width: 70%;
+    border: 5px solid #5dbcd2;
+    
+  }
+  
+  #changing-image {
+    width: 40%;
+    padding: 10px;
+  }
+  
+  .guess-border-box {
+    border: 2px solid #5dbcd2;
+  }
+  
+  .btn {
+    background-color: #5dbcd2;
+    width: 100%;
+    height: 3em;
+    font-size: 1em;
+    color: blanchedalmond;
+    padding: .2em;
+  }
+  
+  .guess-title {
+    font: 1.5em;
+  }
+
+  /* Hide class */
+  
+  .hide {
+    display: none;
+  }
+  
+ /* Media query for smaller screens (image adjust) */
+  
+  @media only screen and (max-width: 600px) {
+
+    #jumbo-title {
+      font-size: 1.2em;
+    }
+
+    #changing-image {
+      width: 100%;
+    }
+    
+  }
+  
