@@ -46,8 +46,9 @@
     border: 3px solid purple;
 }
 
-.directions-button,
-#play-again {
+#directions-button,
+#play-again,
+#modal-button {
     padding: 1em;
     background: red;
         background: -webkit-linear-gradient(left,  teal, blue, violet, purple, orange);
@@ -57,7 +58,8 @@
    
 
 }
-.button-row {
+.button-row,
+.title-row {
     background-color: purple;
 }
 .blank-gem {
@@ -98,4 +100,8 @@
    
   }
   
- 
+  @media only screen and (min-width: 800px)  {
+      #title {
+          font-size: 4em;
+      }
+  }

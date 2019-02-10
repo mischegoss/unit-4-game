@@ -10,6 +10,7 @@ $( document ).ready(function() {
   const wintext = $("#win");
   const losetext = $("#lose");
   const playagain =$("#play-again");
+  const title = $("#title")
   let win = 0;
   let loss = 0;
   let didWin = false;
@@ -58,10 +59,14 @@ $( document ).ready(function() {
   /* This sets the click event for the gem buttoms */  
   gems.click(function() {
     scoreval.show();
+    title.hide();
+
+    if (!didWin) {
     score = score + parseInt($(this).val()); 
     scoreval.text(score);
     console.log(score);
     checkWin();
+    }
   }
   );
     
@@ -79,11 +84,13 @@ $( document ).ready(function() {
       }
      }
      function winRound() {
+      didWin = true;
       win ++;
       wintext.text(win);
       scoreval.text("🎉 🎉 ");
       playagain.show();
       winStars();
+      stopClick();
       
      }
      function loseRound() {
@@ -117,7 +124,6 @@ $( document ).ready(function() {
         $("#win6").attr("src","assets/images/win6.jpg");
         playagain.text("Start New Game");
           break;
-  
         default:
           console.log("No gem added");
       }
@@ -127,13 +133,27 @@ $( document ).ready(function() {
          score = 0;
          win = 0;
          loss = 0;
+      
+         gems.on("click");
          $(".blank-gem").attr("src","assets/images/blankgem.jpg");
          playagain.text("Play Again");
          wintext.text("");
          losetext.text("");
          onLoad();
        }
-     
+
+    
+
+   
+   
+  /* This sets the action for play again */
+
+  function playAgain() {
+    onLoad();
+      score = 0;
+      didWin = false;
+      
+  }
   
     /* This sets action when player clicks play again.  The score should reset but win-lose tallies should stay the same */
   
@@ -141,8 +161,7 @@ $( document ).ready(function() {
        if (win === 6)  {
          resetWinGame();
        } else {
-      onLoad();
-      score = 0;
+      playAgain();
        }
       
        
