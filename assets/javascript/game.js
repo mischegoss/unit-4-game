@@ -10,7 +10,9 @@ $( document ).ready(function() {
   const wintext = $("#win");
   const losetext = $("#lose");
   const playagain =$("#play-again");
-  const title = $("#title")
+  const title = $("#title-wrapper")
+  const winline = $("#win-line")
+  const loseline = $("#lose-line")
   let win = 0;
   let loss = 0;
   let didWin = false;
@@ -19,18 +21,21 @@ $( document ).ready(function() {
   let cardvalue2;
   let cardvalue3;
   let cardvalue4;
-  
   let randomnumber;
+
+ 
   
-  
+ 
   /* This is the function that sets things up  on load.  It is also re-used  when player clicks play again  */
   
   
   function onLoad() {
-    playagain.hide();
-     scoreval.hide();
-     setRandomNumber();
-     setCardValue();
+  winline.hide();
+  loseline.hide();
+  playagain.hide();
+  scoreval.hide();
+  setRandomNumber();
+  setCardValue();
   }
   
   /* This picks a random number and pushes it to the screen  */
@@ -59,7 +64,9 @@ $( document ).ready(function() {
   /* This sets the click event for the gem buttoms */  
   gems.click(function() {
     scoreval.show();
-    title.hide();
+    
+    winline.show();
+    loseline.show();
 
     if (!didWin) {
     score = score + parseInt($(this).val()); 
@@ -90,7 +97,7 @@ $( document ).ready(function() {
       scoreval.text("🎉 🎉 ");
       playagain.show();
       winStars();
-      stopClick();
+      
       
      }
      function loseRound() {
@@ -133,7 +140,7 @@ $( document ).ready(function() {
          score = 0;
          win = 0;
          loss = 0;
-      
+         didWin = false;
          gems.on("click");
          $(".blank-gem").attr("src","assets/images/blankgem.jpg");
          playagain.text("Play Again");
