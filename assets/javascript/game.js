@@ -10,9 +10,10 @@ $( document ).ready(function() {
   const wintext = $("#win");
   const losetext = $("#lose");
   const playagain =$("#play-again");
-  const title = $("#title-wrapper")
-  const winline = $("#win-line")
-  const loseline = $("#lose-line")
+  const title = $("#title-wrapper");
+  const winline = $("#win-line");
+  const loseline = $("#lose-line");
+  let clicks = 0;
   let win = 0;
   let loss = 0;
   let didWin = false;
@@ -22,6 +23,7 @@ $( document ).ready(function() {
   let cardvalue3;
   let cardvalue4;
   let randomnumber;
+  
 
  
   
@@ -63,7 +65,9 @@ $( document ).ready(function() {
   }
   /* This sets the click event for the gem buttoms */  
   gems.click(function() {
-    scoreval.show();
+    clicks ++
+    console.log(clicks)
+    onFirstClick();
 
     if (!didWin) {
     score = score + parseInt($(this).val()); 
@@ -73,6 +77,17 @@ $( document ).ready(function() {
     }
   }
   );
+
+  function onFirstClick() {
+    if (clicks >= 1 ) {
+      scoreval.show();
+    winline.show();
+    loseline.show();
+    } else {
+      console.log("No clicks yet")
+    }
+
+  }
 
   /* This checks win  */
      function checkWin() {
@@ -103,6 +118,7 @@ $( document ).ready(function() {
       playagain.show();
       loss ++;
       losetext.text(loss);
+      
      }
   
      /* This sets the win gems */
@@ -110,8 +126,6 @@ $( document ).ready(function() {
       switch(win) {
         case win = 1 :
         $("#win1").attr("src","assets/images/win1.jpg");
-        winline.show();
-        loseline.show();
           break;
         case win = 2:
         $("#win2").attr("src","assets/images/win2.jpg");
@@ -139,6 +153,7 @@ $( document ).ready(function() {
          score = 0;
          win = 0;
          loss = 0;
+         clicks = 1;
          didWin = false;
          gems.on("click");
          $(".blank-gem").attr("src","assets/images/blankgem.jpg");
@@ -158,6 +173,7 @@ $( document ).ready(function() {
     onLoad();
       score = 0;
       didWin = false;
+      clicks = 0;
       
   }
   
