@@ -1,4 +1,4 @@
-/* TO DO: Refactor code so less repetitive.  Refactor code so that win/loss/buttons do not appear briefly during load */
+/* Updated to include refactoring so objects meant to be hidden don't briefly appear during load */
 
 
 $( document ).ready(function() {
@@ -28,29 +28,14 @@ $( document ).ready(function() {
   let randomnumber;
   
  
-  /* This is the function that sets things up  on load.  */
-  
+  /* This is the function that sets things up  on load. It is  re-used for subsequent rounds of play. */
   
   function onLoad() {
-  winline.hide();
-  loseline.hide();
-  playagain.hide();
   scoreval.hide();
   setRandomNumber();
   setCardValue();
   }
-
-  /* This is the reload function. Right now it is separated so that the win/lose shouw up w/o a click prompt in subsequent games. TO DO: Refactor this code to make more DRY */ 
-
-  function onReload() {
-    winline.show();
-    loseline.show();
-    playagain.hide();
-    scoreval.hide();
-    setRandomNumber();
-    setCardValue();
-    }
-  
+ 
   /* This picks a random number and pushes it to the screen  */
   function setRandomNumber() {
     randomnumber = Math.floor(Math.random()*101+19);
@@ -60,7 +45,7 @@ $( document ).ready(function() {
   /*This sets card value on click. It does not print to screen */ 
   function setCardValue()  {
   
-    cardvalue1 =  Math.floor(Math.random()*11+1)
+    cardvalue1 =  Math.floor(Math.random()*11+1);
     cardvalue2 =  Math.floor(Math.random()*11+1);
     cardvalue3 =  Math.floor(Math.random()*11+1);
     cardvalue4 =  Math.floor(Math.random()*11+1);
@@ -76,8 +61,8 @@ $( document ).ready(function() {
   }
   /* This sets the click event for the gem buttoms */  
   gems.click(function() {
-    clickcount ++;  // Counts click for sake of first click. TO DO: Implement attempts feature in game. 
-    console.log(clickcount);
+    clickcount ++;  // Counts click for sake of first click. 
+    console.log(clickcount); 
     onFirstClick();
 
     if (!didWin) {
@@ -89,11 +74,13 @@ $( document ).ready(function() {
   }
   );
 
+  /*Sets up action so on first click the win/losses and score appear on screen. */
+
   function onFirstClick() {
     if (clickcount > 0 ) {
     scoreval.show();
-    winline.show();
-    loseline.show();
+    winline.removeClass("hide");
+    loseline.removeClass("hide");
     } else {
       console.log("No clicks yet");
     }
@@ -118,7 +105,7 @@ $( document ).ready(function() {
       win ++;
       wintext.text(win);
       scoreval.text("🎉 🎉 ");
-      playagain.show();
+      playagain.toggleClass("hide");
       winStars();
       
       
@@ -126,7 +113,7 @@ $( document ).ready(function() {
      function loseRound() {
       console.log("lost");
       scoreval.text("🤯");
-      playagain.show();
+      playagain.toggleClass("hide");
       loss ++;
       losetext.text(loss);
       
@@ -170,13 +157,15 @@ $( document ).ready(function() {
          playagain.text("Play Again");
          wintext.text("");
          losetext.text("");
-         onReload();
+         playagain.toggleClass("hide");
+         onLoad();
        }
    
   /* This sets the action for play again */
 
   function playAgain() {
-      onReload();
+      playagain.toggleClass("hide");
+      onLoad();
       score = 0;
       didWin = false;
       
