@@ -64,9 +64,6 @@ $( document ).ready(function() {
   /* This sets the click event for the gem buttoms */  
   gems.click(function() {
     scoreval.show();
-    
-    winline.show();
-    loseline.show();
 
     if (!didWin) {
     score = score + parseInt($(this).val()); 
@@ -76,8 +73,8 @@ $( document ).ready(function() {
     }
   }
   );
-    
-      /* This checks win  */
+
+  /* This checks win  */
      function checkWin() {
       if (randomnumber === score) {
         winRound();
@@ -108,11 +105,13 @@ $( document ).ready(function() {
       losetext.text(loss);
      }
   
-  /* This sets the win gems */
+     /* This sets the win gems */
      function winStars() {
       switch(win) {
         case win = 1 :
         $("#win1").attr("src","assets/images/win1.jpg");
+        winline.show();
+        loseline.show();
           break;
         case win = 2:
         $("#win2").attr("src","assets/images/win2.jpg");

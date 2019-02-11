@@ -1,153 +1,157 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1, shrink-to-fit=no" /><!-- Bootstrap CSS -->
+  <link rel="stylesheet" href=
+  "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity=
+  "sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin=
+  "anonymous" type="text/css" />
+  <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Gem Collector</title>
-  </head>
-  <body>
-  
+  <title>Gem Collector</title>
+</head>
+
+<body>
   <!-- Modal -->
-  <div class="modal" id="direction-modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+
+  <div class="modal" id="direction-modal" tabindex="-1" role="dialog" aria-labelledby=
+  "modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" >How to Play</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <h5 class="modal-title">How to Play</h5><button type="button" class="close"
+          data-dismiss="modal" aria-label="Close"><span aria-hidden=
+          "true">&#215;</span></button>
         </div>
+
         <div class="modal-body">
           <ul>
-          <li>You will be given a random number at the start of the game.</li>
-          <li>There are four crystals. By clicking on a crystal, you will add a specific amount of points to your total score.</li>
-          <li> You win the round by matching your total score to the random number. </li>
-           <li> You lose the round if your total score goes above the random number.</li>
-           <li> The value of each crystal is hidden from you until you click on it.</li>
-           <li>Each time when the game starts, the game will change the values of each crystal. </li>
-          <li>Collect six crystals to win the game. </li>
+            <li>You will be given a random number at the start of the game.</li>
+
+            <li>There are four crystals. By clicking on a crystal, you will add a
+            specific amount of points to your total score.</li>
+
+            <li>You win the round by matching your total score to the random number.</li>
+
+            <li>You lose the round if your total score goes above the random number.</li>
+
+            <li>The value of each crystal is hidden from you until you click on it.</li>
+
+            <li>Each time when the game starts, the game will change the values of each
+            crystal.</li>
+
+            <li>Collect six crystals to win the game.</li>
           </ul>
         </div>
+
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" id="modal-button" data-dismiss="modal">Close</button>
-          
+          <button type="button" class="btn btn-secondary" id="modal-button" data-dismiss=
+          "modal">Close</button>
         </div>
       </div>
     </div>
   </div>
-   
-    <div class="container game-display">
-        
-        <!--Row 1-->
-        <div class="row text-center">
-          <div class="col-md-8  col-sm-12 random-number-box" id = "random-box">
-            <p class = "text-left">Match this number:</p>
-            <p id="random-number"></p>
-          </div>
-          <div class="col-md-4 col-sm-12  win-box">
-              <div id ="title-wrapper">
-              <h2 class ="text-center"> GEM </h2>
-              <h2 class ="text-center"> COLLECTOR </h2>
-            </div>
-            
-            <p id="win-line">🎉Win Count: <span id = "win"></span> 🎉</p>
-            
-            <p id="lose-line">🤯Lose Count: <span id = "lose"></span> 🤯 </p>
-            <button type="button" class="btn btn-primary" id ="play-again">Play Again</button>
-            
-          </div>
-        
-        </div>
-        <!--Row 2 -->
-        <div class="row gem-row  ">
-                <div class="col-3 gems" id ="gem1">
-                  <img class="img-fluid" src="assets/images/gemblack.jpg">
-                </div>
-                <div class="col-3 gems" id="gem2">
-                  <img class="img-fluid" src="assets/images/gempink.jpg">
-                </div>
-                <div class="col-3 gems" id="gem3">
-                   <img class="img-fluid" src="assets/images/heart.jpg">
-                      </div>
-                <div class="col-3 gems" id="gem4">
-                    <img class="img-fluid" src="assets/images/unicornpoop.jpg">
-                      </div>
-                
-              </div>
-        <!--Row 3-->
-       
-        <div class="row ">
 
-            <div class="col-md-6 col-sm-5 score-box">
-                <p>Your score is: </p>
-                <p class = "text-center" id="score"> </p>
-              </div>
+  <div class="container game-display">
+    <!--Row 1-->
 
-                <div class="col-md-6 col-sm-7 gem-box">
-                  
-                  <div class= "container">
-                      
-                     <!--Inner Row 1-->
-                      <div class = "row">
-                      <div class="win-gem col-4" >
-                          <img class="img-fluid blank-gem" id ="win1"src="assets/images/blankgem.jpg">
-                        </div>
-                        <div class="win-gem col-4">
-                            <img class="img-fluid blank-gem" id ="win2" src="assets/images/blankgem.jpg">
-                          </div>
-                          <div class="win-gem col-4">
-                              <img class="img-fluid blank-gem" id ="win3" src="assets/images/blankgem.jpg">
-                            </div>
-                          </div>   
-                        <!-- Inner Row 2 --> 
-                        <div class = "row">
-                        <div class=" col-4 win-gem" >
-                            <img class="img-fluid blank-gem" id ="win4" src="assets/images/blankgem.jpg">
-                          </div>
-                          <div class="col-4 win-gem" >
-                              <img class="img-fluid blank-gem" id ="win5" src="assets/images/blankgem.jpg">
-                            </div>
-                            <div class="col-4 win-gem">
-                                <img class="img-fluid blank-gem" id ="win6" src="assets/images/blankgem.jpg">
-                              </div>
-                  </div>
-                  
-                  </div>
+    <div class="row text-center">
+      <div class="col-md-8 col-sm-12 random-number-box" id="random-box">
+        <p class="text-left">Match this number:</p>
 
-                </div>
-                
-              </div>
-        <!--Row 4 -->
-              <div class="row">
-                  
-                  <div class ="col-12 text-center button-row">
- <!-- Button trigger modal -->
- <button type="button" class="btn btn-primary" id ="directions-button" data-toggle="modal" data-target="#direction-modal">
-    How to Play
-  </button>
-
-
-                  </div>
-
-                
-                  
-        
-                    </div>
+        <p id="random-number"></p>
       </div>
-    
-      
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="assets/javascript/game.js"></script>
-  </body>
+      <div class="col-md-4 col-sm-12 win-box">
+        <div id="title-wrapper">
+          <h2 class="text-center">GEM</h2>
+
+          <h2 class="text-center">COLLECTOR</h2>
+        </div>
+
+        <p id="win-line">&#127881;Win Count: <span id="win"></span> &#127881;</p>
+
+        <p id="lose-line">&#129327;Lose Count: <span id="lose"></span>
+        &#129327;</p><button type="button" class="btn btn-primary" id="play-again">Play
+        Again</button>
+      </div>
+    </div><!--Row 2 -->
+
+    <div class="row gem-row">
+      <div class="col-3 gems" id="gem1"><img class="img-fluid" src=
+      "assets/images/gemblack.jpg" /></div>
+
+      <div class="col-3 gems" id="gem2"><img class="img-fluid" src=
+      "assets/images/gempink.jpg" /></div>
+
+      <div class="col-3 gems" id="gem3"><img class="img-fluid" src=
+      "assets/images/heart.jpg" /></div>
+
+      <div class="col-3 gems" id="gem4"><img class="img-fluid" src=
+      "assets/images/unicornpoop.jpg" /></div>
+    </div><!--Row 3-->
+
+    <div class="row">
+      <div class="col-md-6 col-sm-5 score-box">
+        <p>Your score is:</p>
+
+        <p class="text-center" id="score"></p>
+      </div>
+
+      <div class="col-md-6 col-sm-7 gem-box">
+        <div class="container">
+          <!--Inner Row 1-->
+
+          <div class="row">
+            <div class="win-gem col-4"><img class="img-fluid blank-gem" id="win1" src=
+            "assets/images/blankgem.jpg" alt="greyed out gem" /></div>
+
+            <div class="win-gem col-4"><img class="img-fluid blank-gem" id="win2" src=
+            "assets/images/blankgem.jpg" alt="greyed out gem"/></div>
+
+            <div class="win-gem col-4"><img class="img-fluid blank-gem" id="win3" src=
+            "assets/images/blankgem.jpg" alt="greyed out gem"/></div>
+          </div><!-- Inner Row 2 -->
+
+          <div class="row">
+            <div class=" col-4 win-gem"><img class="img-fluid blank-gem" id="win4" src=
+            "assets/images/blankgem.jpg" alt="greyed out gem" /></div>
+
+            <div class="col-4 win-gem"><img class="img-fluid blank-gem" id="win5" src=
+            "assets/images/blankgem.jpg" alt="greyed out gem" /></div>
+
+            <div class="col-4 win-gem"><img class="img-fluid blank-gem" id="win6" src=
+            "assets/images/blankgem.jpg" alt="greyed out gem"/></div>
+          </div>
+        </div>
+      </div>
+    </div><!--Row 4 -->
+
+    <div class="row">
+      <div class="col-12 text-center button-row">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" id="directions-button" data-toggle=
+        "modal" data-target="#direction-modal">How to Play</button>
+      </div>
+    </div>
+  </div><!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity=
+  "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin=
+  "anonymous" type="text/javascript">
+</script><script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity=
+"sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin=
+"anonymous" type="text/javascript">
+</script><script src=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity=
+"sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin=
+"anonymous" type="text/javascript">
+</script><script src="assets/javascript/game.js" type="text/javascript">
+</script>
+</body>
 </html>
