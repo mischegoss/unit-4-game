@@ -1,3 +1,6 @@
+/* TO DO: Refactor code so less repetitive.  Refactor code so that win/loss/buttons do not appear briefly during load */
+
+
 $( document ).ready(function() {
 
   /*These are the universal variables */
