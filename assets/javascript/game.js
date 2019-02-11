@@ -13,7 +13,7 @@ $( document ).ready(function() {
   const title = $("#title-wrapper");
   const winline = $("#win-line");
   const loseline = $("#lose-line");
-  let clicks = 0;
+  let clickcount = 0;
   let win = 0;
   let loss = 0;
   let didWin = false;
@@ -24,11 +24,8 @@ $( document ).ready(function() {
   let cardvalue4;
   let randomnumber;
   
-
  
-  
- 
-  /* This is the function that sets things up  on load.  It is also re-used  when player clicks play again  */
+  /* This is the function that sets things up  on load.  */
   
   
   function onLoad() {
@@ -39,23 +36,34 @@ $( document ).ready(function() {
   setRandomNumber();
   setCardValue();
   }
+
+  /* This is the reload function. Right now it is separated so that the win/lose shouw up w/o a click prompt in subsequent games. TO DO: Refactor this code to make more DRY */ 
+
+  function onReload() {
+    winline.show();
+    loseline.show();
+    playagain.hide();
+    scoreval.hide();
+    setRandomNumber();
+    setCardValue();
+    }
   
   /* This picks a random number and pushes it to the screen  */
   function setRandomNumber() {
-    randomnumber = /* Math.floor(Math.random()*101+19) */  20;
+    randomnumber = Math.floor(Math.random()*101+19);
     $("#random-number").text(randomnumber);
   }
       
   /*This sets card value on click. It does not print to screen */ 
   function setCardValue()  {
   
-    cardvalue1 = /* Math.floor(Math.random()*11+1) */  5;
+    cardvalue1 =  Math.floor(Math.random()*11+1)
     cardvalue2 =  Math.floor(Math.random()*11+1);
     cardvalue3 =  Math.floor(Math.random()*11+1);
     cardvalue4 =  Math.floor(Math.random()*11+1);
   
   gem1.val(cardvalue1);
-  console.log(cardvalue1);
+  console.log(cardvalue1); //Left the console.logs in code for easy debugging
   gem2.val(cardvalue2);
   console.log(cardvalue2);
   gem3.val(cardvalue3);
@@ -65,8 +73,8 @@ $( document ).ready(function() {
   }
   /* This sets the click event for the gem buttoms */  
   gems.click(function() {
-    clicks ++
-    console.log(clicks)
+    clickcount ++;  // Counts click for sake of first click. TO DO: Implement attempts feature in game. 
+    console.log(clickcount);
     onFirstClick();
 
     if (!didWin) {
@@ -79,12 +87,12 @@ $( document ).ready(function() {
   );
 
   function onFirstClick() {
-    if (clicks >= 1 ) {
-      scoreval.show();
+    if (clickcount > 0 ) {
+    scoreval.show();
     winline.show();
     loseline.show();
     } else {
-      console.log("No clicks yet")
+      console.log("No clicks yet");
     }
 
   }
@@ -153,27 +161,22 @@ $( document ).ready(function() {
          score = 0;
          win = 0;
          loss = 0;
-         clicks = 1;
          didWin = false;
          gems.on("click");
          $(".blank-gem").attr("src","assets/images/blankgem.jpg");
          playagain.text("Play Again");
          wintext.text("");
          losetext.text("");
-         onLoad();
+         onReload();
        }
-
-    
-
-   
    
   /* This sets the action for play again */
 
   function playAgain() {
-    onLoad();
+      onReload();
       score = 0;
       didWin = false;
-      clicks = 0;
+      
       
   }
   
@@ -191,7 +194,8 @@ $( document ).ready(function() {
    );
      
   onLoad();
-  });
+
+    });
   
 
     
