@@ -20,6 +20,7 @@ $( document ).ready(function() {
   let win = 0;
   let loss = 0;
   let didWin = false;
+  let didLose = false;
   let score = 0;
   let cardvalue1;
   let cardvalue2;
@@ -65,7 +66,7 @@ $( document ).ready(function() {
     console.log(clickcount); 
     onFirstClick();
 
-    if (!didWin) {
+    if (!didWin  && !didLose) {
     score = score + parseInt($(this).val()); 
     scoreval.text(score);
     console.log(score);
@@ -89,11 +90,11 @@ $( document ).ready(function() {
 
   /* This checks win  */
      function checkWin() {
-      if (randomnumber === score) {
+      if (randomnumber === score && !didWin) {
         winRound();
          
           
-      } else if (score > randomnumber ) {
+      } else if (score > randomnumber &&!didLose ) {
         loseRound();
       }
      else {
@@ -111,6 +112,7 @@ $( document ).ready(function() {
       
      }
      function loseRound() {
+      didLose = true;
       console.log("lost");
       scoreval.text("🤯");
       playagain.toggleClass("hide");
@@ -152,6 +154,7 @@ $( document ).ready(function() {
          win = 0;
          loss = 0;
          didWin = false;
+         didLose = false;
          gems.on("click");
          $(".blank-gem").attr("src","assets/images/blankgem.jpg");
          playagain.text("Play Again");
@@ -168,6 +171,7 @@ $( document ).ready(function() {
       onLoad();
       score = 0;
       didWin = false;
+      didLose = false;
       
       
   }
